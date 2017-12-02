@@ -28,7 +28,7 @@ function getQueryParams(qs) {
 
     var params = re.exec(qs);
 
-    params = console.log(params[0].split('code='))[1];
+    params = params[0].split('code=')[1];
 
     return params;
 }
