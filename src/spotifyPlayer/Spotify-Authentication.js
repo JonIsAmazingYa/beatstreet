@@ -12,9 +12,7 @@ export function obtainAccessToken() {
     accToken = JSON.parse(accToken);
     accToken = JSON.stringify(accToken);
 
-    var re = new RegExp('[^"\\]+');
-
-    var tok = re.exec(accToken);
+    tok = accToken.split('"');
 
     console.log(tok);
 
