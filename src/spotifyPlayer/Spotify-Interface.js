@@ -4,7 +4,7 @@ var overrideAccToken = null;
 
 export function getClientAuthorization() {
     var scopes = ['playlist-read-private', 'playlist-modify-private', 'streaming', 'user-read-playback-state', 'user-modify-playback-state', 'user-read-currently-playing'],
-        redirectUri = 'http://beatstreet.tech/',
+        redirectUri = 'https://beatstreet-fcff1.firebaseapp.com/',
         clientId = '1ee50d582cdf4b418e31e20189774f36',
         state = 'banter';
 
