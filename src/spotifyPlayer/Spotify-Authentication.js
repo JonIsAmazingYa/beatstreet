@@ -1,9 +1,9 @@
 import {setAccessToken} from "./Spotify-Interface";
 
-export function getAccessToken() {
-    params = getQueryParams(window.location.href);
+export function obtainAccessToken() {
+    var params = getQueryParams(window.location.href);
 
-    accToken = httpGet('https://beatstreet.herokuapp.com/?userKey=' + params)
+    var accToken = httpGet('https://beatstreet.herokuapp.com/?userKey=' + params)
 
     console.log(accToken);
 

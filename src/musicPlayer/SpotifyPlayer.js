@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'react-viewport-slider';
+import * as auth from '../spotifyPlayer/Spotify-Authentication.js'
 
 import './SpotifyPlayer.css';
 import play from "../assets/play.svg";
@@ -10,6 +11,10 @@ class SpotifyPlayer extends Component {
     constructor(props) {
         super(props);
         this.state = {playSwitch:  true, image: play};
+    }
+
+    componentDidMount() {
+        auth.obtainAccessToken();
     }
 
     pressSwitch(){
