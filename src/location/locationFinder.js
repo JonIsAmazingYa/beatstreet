@@ -1,4 +1,6 @@
 import MapboxClient from 'mapbox'
+import * as spot from '../spotifyPlayer/Spotify-Interface.js';
+
 var client = new MapboxClient('pk.eyJ1IjoidGhvbWFzZ29kZnJleTk3IiwiYSI6ImNqYWZoamt2NTE2MXcycW9pYWVvdHVxYWQifQ.5-oVq2GCvmOXuySwYZz_-w');
 var poi;
 var address;
@@ -22,12 +24,9 @@ export function geoReverse() {
             {latitude: latitude, longitude: longitude},
             function (err, res) {
                 // res is a GeoJSON document with geocoding matches
-                console.log(res);
                 let f = res.features;
-                console.log(f);
                 for (var i = 0; i < f.length; i++) {
                     var obj = f[i];
-                    console.log(obj.place_name);
                     if (obj.id.includes('address')){
                         address = obj.text;
                     }
@@ -42,23 +41,36 @@ export function geoReverse() {
                     }
                 }
 
-                if (address){
-                    // if(spotifyapi.resultExists){}
-                    console.log('Address is ' + address);
-                }
-                else if(poi) {
-                    console.log('Point of Interest is ' + poi);
-                }
-                else if(place) {
-                    console.log('Place is ' + address);
-                }
-                else if(neighbourhood) {
-                    console.log('Neighbourhood is ' + neighbourhood);
-                }
                 return res.features;
-            }).then((features)=>{
-            console.log(features);
+            }).then(function(r) {
+            setTrack(r);
         });
+    }
+
+    function setTrack(result) {
+        var uri = getTrack(result);
+    }
+
+    function getTrack(feat) {
+        console.log(feat);
+
+        console.log(feat.entity.features);
+
+        var features = feat.entity.features;
+
+        for (var i=0; i<features.length; ++i) {
+            var f = features[i].text.split(" ");
+
+            console.log(f);
+
+            spot.searchTracks(f[0]).then(function(result) {
+                if (result.body.tracks.items.length > 0) {
+                    return [f, result.body.tracks.items[0].uri];
+                }
+            });
+        }
+
+        return 'spotify:track:4uLU6hMCjMI75M1A2tKUQC';
     }
 
     function error() {
