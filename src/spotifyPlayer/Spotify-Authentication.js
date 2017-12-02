@@ -12,13 +12,13 @@ export function obtainAccessToken() {
     accToken = JSON.parse(accToken);
     accToken = JSON.stringify(accToken);
 
-    tok = accToken.split('"');
+    var tok = accToken.split('"');
 
     console.log(tok);
 
-    if (tok.length > 4) {
-        setAccessToken(tok[3]);
-        console.log("Access token retrieved, " + tok[3]);
+    if (tok.length > 5) {
+        setAccessToken(tok[4]);
+        console.log("Access token retrieved, " + tok[4]);
     } else {
         return false;
     }
