@@ -9,7 +9,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loggedin: false
+            loggedin: true
         }
     }
 
@@ -17,11 +17,13 @@ class App extends Component {
         let url = window.location.href;
         if (url = 'https://beatstreet-fcff1.firebaseapp.com/'){
                 console.log('You are on the splash');
+                this.setState((loggedin: false))
         }
         else {
             if(auth.obtainAccessToken()) {
-                this.setState({loggedin: true})
+                this.setState({loggedin: true});
             } else {
+                this.setState((loggedin: false));
                 console.log('Failed to get auth code');
             }
         }
