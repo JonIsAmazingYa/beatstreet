@@ -9,13 +9,13 @@ export function obtainAccessToken() {
 
     console.log(tok);
 
-    tok = tok.split('\\')[0];
+    tok = tok[4].split('\\')[0];
 
     console.log(tok);
 
     if (tok.length > 100) {
         setAccessToken(tok);
-        console.log("Access token retrieved, " + tok[4]);
+        console.log("Access token retrieved, " + tok);
     } else {
         return false;
     }
