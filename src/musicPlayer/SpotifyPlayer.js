@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import Slider from 'react-viewport-slider';
+import React, { Component } from 'react'
 import * as auth from '../spotifyPlayer/Spotify-Authentication.js'
 
 import './SpotifyPlayer.css';
@@ -28,8 +27,7 @@ class SpotifyPlayer extends Component {
 
     render() {
         return (
-            <Slider>
-                <Slider.Item buttonLabel={'More Songs'} hideButton={true}>
+            <div>
                     <h1 className="Brand">BeatStreet</h1>
                     <div className="Background">
                         <MapView/>
@@ -46,36 +44,7 @@ class SpotifyPlayer extends Component {
                         </div>
                         <img className="SmallButton" src={require("../assets/arrow.svg")} onClick={() => window.scrollTo(0,document.body.scrollHeight)} />
                     </div>
-                </Slider.Item>
-                <Slider.Item style={{ backgroundColor: '#526077' }}>
-                    <h1 className="TitleSecondScreen">Street</h1>
-                    <div className="AlternativeBox">
-                        <img className="Album" src={require("../assets/duffy.PNG")} />
-                        <div className="MediaInfo">
-                            <h1>Song Title</h1>
-                            <h2>Artist Name</h2>
-                            <h2>2015</h2>
-                        </div>
-                    </div>
-                    <div className="AlternativeBox">
-                        <img className="Album" src={require("../assets/duffy.PNG")} />
-                        <div className="MediaInfo">
-                            <h1 className="MusicSong">Song Title</h1>
-                            <h2 className="MusicArtist">Artist Name</h2>
-                            <h2 className="MusicArtist">2017</h2>
-                        </div>
-                    </div>
-                    <div className="AlternativeBox">
-                        <img className="Album" src={require("../assets/duffy.PNG")} />
-                        <div className="MediaInfo">
-                            <h1>Song Title</h1>
-                            <h2>Artist Name</h2>
-                            <h2>2014</h2>
-                        </div>
-                    </div>
-                    <h2 className="PoweredBy">Powered by BeatStreet.</h2>
-                </Slider.Item>
-            </Slider>
+            </div>
         );
     }
 }
