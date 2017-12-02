@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import SpotifyPlayer from './musicPlayer/SpotifyPlayer'
 import Splash from './splash/Splash'
-import * as spot from './Spotify-Interface'
+import * as spot from './spotifyPlayer/Spotify-Interface'
 
 class App extends Component {
     constructor(props) {

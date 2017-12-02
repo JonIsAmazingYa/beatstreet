@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Splash.css';
-import * as spot from '../Spotify-Interface.js';
+import * as spot from '../spotifyPlayer/Spotify-Interface.js';
 
 class Splash extends Component {
     spotifyHandle(){
