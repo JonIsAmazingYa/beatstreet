@@ -1,8 +1,3 @@
-.topLevel {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-}
 
 .Brand {
     font-size: 5vh;
@@ -50,7 +45,7 @@
     height: 100%;
     width: 100%;
     display: inline-block;
-    position: absolute;
+    position: relative;
 }
 .Play {
     margin-left: 1vh;
@@ -71,6 +66,7 @@
 
 .MediaInfo {
     width: auto;
+    height: 20vh;
 }
 h1 {
     font-family: 'Roboto', sans-serif;
@@ -96,7 +92,8 @@ h2 {
     font-family: 'Roboto', sans-serif;
     font-size: 3vw;
     color: #F7F7F2;
-    margin: 3px;
+    margin-top: 3px;
+    margin-left: 3px;
 }
 
 @media only screen and (max-width: 700px) {

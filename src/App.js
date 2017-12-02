@@ -32,7 +32,7 @@ class App extends Component {
 
     render() {
         return (
-            <div className={'heightFix'}>
+            <div>
                 {this.state.loggedin ? <SpotifyPlayer />: <Splash />}
             </div>
         );
