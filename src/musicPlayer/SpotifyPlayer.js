@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './SpotifyPlayer.css';
+import * as geo from "../location/locationFinder";
 import play from "../assets/play.svg";
 import pause from "../assets/pause.svg";
 import album from "../assets/duffy.PNG";
@@ -16,7 +17,7 @@ class SpotifyPlayer extends Component {
             image: play,
             currentSong: 'No Song',
             currentArtist: 'No Artist',
-            albumart: '../assets/duffy.PNG',
+            albumart: album,
             location: 'No Location'
         };
     }
@@ -63,13 +64,19 @@ class SpotifyPlayer extends Component {
         }
     }
 
+    updateSong() {
+        geo.geoReverse().then(function() {
+            this.playSongs(localStorage.getItem('song_uri'),localStorage.getItem('song_search'))
+        })
+    }
+
 
 
 
     render() {
         return (
                     <div className="Background">
-                        <h1 className="Brand">BeatStreet</h1>
+                        <h1 className="Brand" onClick={() => this.updateSong()}>BeatStreet</h1>
                         <MapView/>
                         <div className="Bar">
                             <div className="ButtonHolder">
@@ -77,7 +84,7 @@ class SpotifyPlayer extends Component {
                             </div>
                             <img className="Album" src={this.state.albumart} />
                             <div className="MediaInfo">
-                                <h2 className={"MusicArtist"}>Street</h2>
+                                <h2 className={"MusicArtist"}>{this.state.location}</h2>
                                 <h1 className={"MusicSong"}>{this.state.currentSong}</h1>
                                 <h2 className={"MusicArtist"}>{this.state.currentArtist}</h2>
                             </div>

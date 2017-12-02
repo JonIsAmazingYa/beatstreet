@@ -120,13 +120,13 @@ h2 {
 @media only screen and (max-width: 550px) {
     h1 {
         font-family: 'Roboto', sans-serif;
-        font-size: 4vh;
+        font-size: 40%;
         color: #F7F7F2;
         margin: 3px;
     }
     h2 {
         font-family: 'Roboto', sans-serif;
-        font-size: 3vh;
+        font-size: 20%;
         color: #F7F7F2;
         margin: 3px;
     }

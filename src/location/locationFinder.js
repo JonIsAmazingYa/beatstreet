@@ -47,30 +47,24 @@ export function geoReverse() {
         });
     }
 
-    function setTrack(result) {
-        var uri = getTrack(result);
-    }
-
-    function getTrack(feat) {
+    function setTrack(feat) {
         console.log(feat);
 
         console.log(feat.entity.features);
 
         var features = feat.entity.features;
 
-        for (var i=0; i<features.length; ++i) {
-            var f = features[i].text.split(" ");
+        var f = features[0].text.split(" ");
 
-            console.log(f);
+        console.log(f);
 
-            spot.searchTracks(f[0]).then(function(result) {
-                if (result.body.tracks.items.length > 0) {
-                    return [f, result.body.tracks.items[0].uri];
-                }
-            });
-        }
-
-        return 'spotify:track:4uLU6hMCjMI75M1A2tKUQC';
+        spot.searchTracks(f[0]).then(function(result) {
+            if (result.body.tracks.items.length > 0) {
+                localStorage.setItem('song_uri', result.body.tracks.items[0].uri);
+                localStorage.setItem('song_search', f[0]);
+                console.log("Song is " + localStorage.getItem('song_uri') + " for location " + localStorage.getItem('song_search'));
+            }
+        });
     }
 
     function error() {

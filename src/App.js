@@ -20,7 +20,7 @@ class App extends Component {
                 this.setState({loggedin: false});
         }
         else {
-            if(false) {
+            if(auth.obtainAccessToken()) {
                 this.setState({loggedin: true});
             } else {
                 this.setState({loggedin: false});
