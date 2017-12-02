@@ -3,11 +3,13 @@ import {setAccessToken} from "./Spotify-Interface";
 export function obtainAccessToken() {
     var params = getQueryParams(window.location.href);
 
+    if (params.length < 200) {
+        return false;
+    }
+
     var accToken = httpGet('https://beatstreet.herokuapp.com/?userKey=' + params);
 
-    setAccessToken(accToken.acc_token);
-
-    console.log(accToken.acc_token);
+    console.log(accToken);
 
     return true;
 }
