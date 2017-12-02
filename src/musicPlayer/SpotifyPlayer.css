@@ -1,3 +1,9 @@
+.topLevel {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
 .Brand {
     font-size: 5vh;
     font-family: 'Lobster', cursive;

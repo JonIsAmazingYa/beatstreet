@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import * as auth from './spotifyPlayer/Spotify-Authentication.js';
-
+import './index.css'
 import SpotifyPlayer from './musicPlayer/SpotifyPlayer'
 import Splash from './splash/Splash'
 
@@ -32,11 +32,10 @@ class App extends Component {
 
     render() {
         return (
-            <div>
+            <div className={'heightFix'}>
                 {this.state.loggedin ? <SpotifyPlayer />: <Splash />}
             </div>
         );
     }
 }
-
 export default App;
