@@ -54,9 +54,9 @@ export function getCurrentTrack() {
 
     spotifyApi.setAccessToken(localStorage.getItem('accessToken'));
 
-    var curTrack = spotifyApi.getMyCurrentPlayingTrack();
-
-    console.log(curTrack);
+    var curTrack = spotifyApi.getMyCurrentPlayingTrack().then( function(result){
+        console.log(result)
+    });
 
     return curTrack;
 }
