@@ -15,9 +15,10 @@ class App extends Component {
     componentWillMount() {
         let url = window.location.href;
         if (url = 'https://beatstreet-fcff1.firebaseapp.com/'){
-
+                console.log('You are on the splash');
         }
         else {
+            console.log('You are on the map');
             let code = url.substring(url.indexOf("=")+1, url.indexOf("&"));
 
             fetch("https://beatstreet.herokuapp.com/?userKey="+code).then((resp)=>{
