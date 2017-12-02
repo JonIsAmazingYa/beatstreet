@@ -10,6 +10,7 @@ export function obtainAccessToken() {
     var accToken = httpGet('https://beatstreet.herokuapp.com/?userKey=' + params);
 
     accToken = JSON.parse(accToken);
+    accToken = JSON.stringify(accToken);
 
     console.log(accToken);
 
