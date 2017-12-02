@@ -11,6 +11,13 @@ export function obtainAccessToken() {
 
     console.log(accToken);
 
+    if (accToken.access_token !== "undefined") {
+        setAccessToken(accToken.access_token);
+        console.log("Access token retrieved, " + accToken.access_token);
+    } else {
+        return false;
+    }
+
     return true;
 }
 
