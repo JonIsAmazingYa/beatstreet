@@ -13,7 +13,7 @@ export function obtainAccessToken() {
 
     console.log(accToken);
 
-    tok = accToken['access_token'];
+    var tok = accToken.access_token;
 
     console.log(tok);
 
@@ -40,6 +40,10 @@ function getQueryParams(qs) {
     var re = new RegExp('code=[^&]*');
 
     var params = re.exec(qs);
+
+    if (params = null) {
+        return '';
+    }
 
     params = params[0].split('code=')[1];
 
