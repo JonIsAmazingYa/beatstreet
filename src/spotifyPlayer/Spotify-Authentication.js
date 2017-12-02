@@ -41,7 +41,7 @@ function getQueryParams(qs) {
 
     var params = re.exec(qs);
 
-    if (params = null) {
+    if (params.length < 1) {
         return '';
     }
 
