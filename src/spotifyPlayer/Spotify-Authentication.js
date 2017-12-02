@@ -12,15 +12,15 @@ export function obtainAccessToken() {
     accToken = JSON.parse(accToken);
     accToken = JSON.stringify(accToken);
 
-    console.log(accToken);
+    var re = new RegExp('[^"\\]+');
 
-    var tok = accToken.access_token;
+    var tok = re.exec(accToken);
 
     console.log(tok);
 
-    if (tok !== undefined) {
-        setAccessToken(tok);
-        console.log("Access token retrieved, " + tok);
+    if (tok.length > 4) {
+        setAccessToken(tok[3]);
+        console.log("Access token retrieved, " + tok[3]);
     } else {
         return false;
     }
