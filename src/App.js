@@ -12,23 +12,26 @@ class App extends Component {
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         let url = window.location.href;
-        let code = url.substring(url.indexOf("=")+1, url.indexOf("&"));
-        fetch("https://beatstreet.herokuapp.com/?userKey="+code).then((resp)=>{
-            spot.setAccessToken(resp.accessToken);
-            this.setState({loggedin:true})
-        })
+        if (url = 'https://beatstreet-fcff1.firebaseapp.com/'){
+
+        }
+        else {
+            let code = url.substring(url.indexOf("=")+1, url.indexOf("&"));
+
+            fetch("https://beatstreet.herokuapp.com/?userKey="+code).then((resp)=>{
+                spot.setAccessToken(resp.accessToken);
+                this.setState({loggedin:true})
+            })
+        }
     }
 
-    handleLogin() {
-        this.setState({loggedin:true})
-    }
 
     render() {
         return (
             <div>
-                {this.state.loggedin ? <SpotifyPlayer />: <Splash onlog ={()=>{this.handleLogin()}}/>}
+                {this.state.loggedin ? <SpotifyPlayer />: <Splash />}
             </div>
         );
     }
