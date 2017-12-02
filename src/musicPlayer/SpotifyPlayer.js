@@ -15,6 +15,10 @@ class SpotifyPlayer extends Component {
     }
 
 
+    componentWillMount() {
+        auth.obtainAccessToken();
+    }
+
 
     pressSwitch(){
         if (this.state.playSwitch) {
