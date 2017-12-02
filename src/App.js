@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import * as auth from 'spotifyPlayer/Spotify-Authentication.js';
 
 import SpotifyPlayer from './musicPlayer/SpotifyPlayer'
 import Splash from './splash/Splash'
@@ -18,12 +19,11 @@ class App extends Component {
 
         }
         else {
-            let code = url.substring(url.indexOf("=")+1, url.indexOf("&"));
-
-            fetch("https://beatstreet.herokuapp.com/?userKey="+code).then((resp)=>{
-                spot.setAccessToken(resp.accessToken);
-                this.setState({loggedin:true})
-            })
+            if(auth.obtainAccessToken()) {
+                this.setState({loggedin: true})
+            } else {
+                console.log('Failed to get auth code');
+            }
         }
     }
 
