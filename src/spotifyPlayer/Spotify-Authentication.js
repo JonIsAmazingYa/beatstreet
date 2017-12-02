@@ -3,9 +3,7 @@ import {setAccessToken} from "./Spotify-Interface";
 export function obtainAccessToken() {
     var params = getQueryParams(window.location.href);
 
-    console.log(params);
-
-    var accToken = httpGet('https://beatstreet.herokuapp.com/?userKey=' + params)
+    var accToken = httpGet('https://beatstreet.herokuapp.com/?userKey=' + params);
 
     console.log(accToken);
 
@@ -33,6 +31,8 @@ function getQueryParams(qs) {
     while (tokens = re.exec(qs)) {
         params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
     }
+
+    params = params[0];
 
     console.log(params);
 
