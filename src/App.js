@@ -14,7 +14,8 @@ class App extends Component {
 
     componentWillMount() {
         let url = window.location.href;
-        if (url = 'https://beatstreet-fcff1.firebaseapp.com/'){
+        console.log(url);
+        if (url === 'https://beatstreet-fcff1.firebaseapp.com/'){
                 console.log('You are on the splash');
                 this.setState({loggedin: false});
         }
