@@ -6,22 +6,26 @@ import play from "../assets/play.svg";
 import pause from "../assets/pause.svg";
 import MapView from "../mapview/Mapview";
 
+import * as actionHandler from '../spotifyPlayer/Spotify-Interface.js'
+
 class SpotifyPlayer extends Component {
     constructor(props) {
         super(props);
         this.state = {playSwitch:  true, image: play};
     }
 
-    componentDidMount() {
-        auth.obtainAccessToken();
-    }
+
 
     pressSwitch(){
         if (this.state.playSwitch) {
             this.setState({playSwitch: false, image: pause});
+
+            actionHandler.pauseSong();
         }
         else {
             this.setState({playSwitch: true, image: play});
+
+            actionHandler.resumeSong();
         }
     }
 
